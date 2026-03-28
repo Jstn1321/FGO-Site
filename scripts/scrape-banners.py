@@ -8,7 +8,8 @@ import re
 URL = "https://grandorder.gamepress.gg/summon-banner-list"
 NA_DELAY_YEARS = 2
 
-dateToday = date(datetime.now().year - NA_DELAY_YEARS, datetime.now().month, datetime.now().day)
+dateToday = date(datetime.now().year, datetime.now().month, datetime.now().day)
+dateTodayAdjusted = date(datetime.now().year - NA_DELAY_YEARS, datetime.now().month, datetime.now().day)
 r = requests.get(URL)
 soup = BeautifulSoup(r.text, 'html.parser')
 rows = soup.select('.table-row-group .table-row')
@@ -25,7 +26,7 @@ for row in rows:
         if dateSearch:
             bannerDate = date(int(dateSearch[0][6:10]), int(dateSearch[0][11:13]), int(dateSearch[0][14:16]))
 
-            if (bannerDate >= dateToday):
+            if (bannerDate >= dateTodayAdjusted):
                 naBanners.append(row)
 for i in range(2):
     naBanners.pop()
@@ -55,4 +56,4 @@ df = pd.DataFrame({
     "Image URL": bannerImages
 })
 
-df.to_csv("fgo_na_predicted_banners.csv", index=False)
+df.to_csv("fgo_na_predicted_banners_" + str(dateToday) + ".csv", index=False)
