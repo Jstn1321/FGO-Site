@@ -22,7 +22,7 @@ bannerImages = []
 for row in rows:
     rowString = row.text.strip()
     if not re.findall("NA:", rowString):
-        dateSearch = re.findall(r"Japan:\d{4}-\d{2}-\d{2}to\d{4}-\d{2}-\d{2}",rowString) or re.findall(r"Japan:\d{4}-\d{2}-\d{2}to\d{4}-\d{2}\d{2}",rowString)
+        dateSearch = re.findall(r"Japan:\d{4}-\d{2}-\d{2}to\d{4}-\d{2}-\d{2}",rowString) or re.findall(r"Japan:\d{4}-\d{2}-\d{2}to\d{4}-\d{4}",rowString)
         if dateSearch:
             bannerDate = date(int(dateSearch[0][6:10]), int(dateSearch[0][11:13]), int(dateSearch[0][14:16]))
 
@@ -56,4 +56,4 @@ df = pd.DataFrame({
     "Image URL": bannerImages
 })
 
-df.to_csv("fgo_na_predicted_banners_" + str(dateToday) + ".csv", index=False)
+df.to_csv(r"public/banners.csv", index=False)
