@@ -16,8 +16,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Adjust this path to wherever your scraper lives on the server
-SCRAPER_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scraper.py")
-
+SCRAPER_PATH = "/home/justin/Website/FGO-Site/fgo-banners/scraper.py"
+#SCRAPER_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scraper.py")
 @app.route("/api/refresh", methods=["POST"])
 def refresh():
     try:

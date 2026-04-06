@@ -6,7 +6,8 @@ import re
 
 URL = "https://grandorder.gamepress.gg/summon-banner-list"
 NA_DELAY_YEARS = 2
-OUTPUT_PATH = r"C:\Nerd Projects\FGO-NA-Banners\fgo-banners\public\banners.csv"
+#OUTPUT_PATH = r"C:\Nerd Projects\FGO-NA-Banners\fgo-banners\public\banners.csv"
+OUTPUT_PATH = "/home/justin/Website/FGO-Site/fgo-banners/dist/banners.csv"
 
 dateToday = date(datetime.now().year, datetime.now().month, datetime.now().day)
 dateTodayAdjusted = date(datetime.now().year - NA_DELAY_YEARS, datetime.now().month, datetime.now().day)
