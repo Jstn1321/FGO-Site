@@ -23,9 +23,9 @@ const EMBEDDED = [
 
 // ── CSV auto-load candidates (relative to public folder) ─────────────────────
 const CSV_CANDIDATES = [
-  '/banners.csv',
-  '/fgo_banners.csv',
-  '/fgo_na_predicted_banners.csv',
+  '/fgo/banners.csv',
+  '/fgo/fgo_banners.csv',
+  '/fgo/fgo_na_predicted_banners.csv',
 ];
 
 // ── API base — empty string = same origin (nginx proxies /api → Flask:5050) ──
